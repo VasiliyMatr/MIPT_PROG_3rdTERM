@@ -2,35 +2,6 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int main( int argc, char** argv )
-{
-    for (size_t argId = 1; argId < argc; argId++)
-    {
-        int number = 0;
-        int scanOut = 0;
-
-        if ((scanOut = sscanf (argv[argId], " %d ", &number)) && scanOut != EOF)
-        {
-            if (number % 15 == 0)
-                printf ("BizzBuzz ");
-            else if (number % 5 == 0)
-                printf ("Buzz ");
-            else if (number % 3 == 0)
-                printf ("Bizz ");
-            else
-                printf ("%s ", argv[argId]);
-
-                continue;
-        }
-
-            printf ("%s ", argv[argId]);
-    }
-
-    printf ("\n");
-
-    return 0;
-}
-
 enum argProp_t {
 
     NOT_A_NUMBER    =  'N', // this argument is not a number
@@ -44,7 +15,46 @@ enum argProp_t {
 
 };
 
-enum argProp_t parseArg (const char * arg)
+enum argProp_t parseArg( const char * arg );
+
+int main( int argc, char** argv )
+{
+    for (size_t argId = 1; argId < argc; argId++)
+    {
+        enum argProp_t argProp = parseArg (argv[argId]);
+
+        switch (argProp)
+        {
+            case NOT_A_NUMBER:
+            case COMMON:
+                printf ("%s ", argv[argId]);
+                break;
+            
+            case DIVISIBLE_BY_3:
+                printf ("BIZZ ");
+                break;
+            case DIVISIBLE_BY_5:
+                printf ("BUZZ ");
+                break;
+
+            case DIVISIBLE_BY_15:
+                printf ("BIZZ-BUZZ ");
+                break;
+
+            default:
+                fprintf (stderr,
+                    "ERROR WITH argProp_t VALUE: FILE=%s LINE=%d VALUE=%d" "\n",
+                    __FILE__, __LINE__, argProp);
+                return -1;
+        }
+    }
+
+    printf ("\n");
+
+    return 0;
+}
+
+enum argProp_t parseArg( const char * arg )
 {
     __uint64_t digitsSum = 0;
     size_t symbolId = 0;
@@ -58,7 +68,7 @@ enum argProp_t parseArg (const char * arg)
         digitsSum += symbol - '0';
     }
 
-    if (symbol != '0' || symbolId == 1)
+    if (symbol != '\0' || symbolId == 1)
         return NOT_A_NUMBER;
 
     char lastDigit = arg[symbolId - 2];
