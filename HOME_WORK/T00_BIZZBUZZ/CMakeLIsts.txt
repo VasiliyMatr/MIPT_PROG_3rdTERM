@@ -1,0 +1,20 @@
+
+cmake_minimum_required( VERSION 3.11 )
+
+project( BizzBuzz VERSION 0.1 LANGUAGES C )
+
+option( DBG "Build bebug version?" ON )
+
+include_directories( "/mnt/d/CODING/MIPT_PROG_3rdTERM/HOME_WORK/T00_BIZZBUZZ/headers" )
+
+add_executable( bizz-buzz
+    source/bizz-buzz.c
+    source/err.c
+    source/trans.c
+)
+
+if( DBG )
+    target_compile_options( bizz-buzz PRIVATE $<$<COMPILE_LANGUAGE:C>:-g -O0> )
+else()
+    target_compile_options( bizz-buzz PRIVATE $<$<COMPILE_LANGUAGE:C>:-O2> )
+endif( DBG )

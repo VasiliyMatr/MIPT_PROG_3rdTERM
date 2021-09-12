@@ -32,21 +32,17 @@ enum errCode_t
     EC_OUT_ERR_,
 };
 
-// EM = error message
-static const size_t EM_MAX_SIZE = 0xff;
-typedef const char errMgs_t [EM_MAX_SIZE];
-
-errMgs_t EM_OK_ =
+static const char EM_OK_[] =
     "No errors.";
-errMgs_t EM_UNDEF_ERR_ =
+static const char EM_UNDEF_ERR_[] =
     "Undefined error code. Please, contact developer.";
-errMgs_t EM_2MANY_ARGS_ =
+static const char EM_2MANY_ARGS_[] =
     "Too many arguments.";
-errMgs_t EM_2FEW_ARGS_ =
+static const char EM_2FEW_ARGS_[] =
     "Too few arguments.";
-errMgs_t EM_IN_ERR_ =
+static const char EM_IN_ERR_[] =
     "Error with input file.";
-errMgs_t EM_OUT_ERR_ =
+static const char EM_OUT_ERR_[] =
     "Error with output file.";
 
 struct errStatus_t

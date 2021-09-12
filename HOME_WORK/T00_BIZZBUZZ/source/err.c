@@ -1,5 +1,5 @@
 
-#include </mnt/d/CODING/MIPT_PROG_3rdTERM/HOME_WORK/T00_BIZZBUZZ/headers/err.h>
+#include <err.h>
 
 const char* getErrMsg( enum errCode_t errCode )
 {

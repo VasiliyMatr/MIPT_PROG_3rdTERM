@@ -1,5 +1,5 @@
 
-#include </mnt/d/CODING/MIPT_PROG_3rdTERM/HOME_WORK/T00_BIZZBUZZ/headers/trans.h>
+#include <trans.h>
 
 int main (int argc, char ** argv)
 {
