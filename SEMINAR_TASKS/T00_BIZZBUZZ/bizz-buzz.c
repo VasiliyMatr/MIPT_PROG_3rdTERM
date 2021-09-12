@@ -20,10 +20,14 @@ enum argProp_t parseArg( const char * arg );
 int main( int argc, char** argv )
 {
     if (argc == 1)
+    {
         fprintf (stderr,
                  "Usage:" "\n"
                  "%s <ARG> [ARGS]" "\n",
                  argv [0]);
+
+        return 0;
+    }
 
     for (size_t argId = 1; argId < argc; argId++)
     {
