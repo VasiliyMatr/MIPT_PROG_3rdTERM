@@ -5,7 +5,7 @@ project( BizzBuzz VERSION 0.1 LANGUAGES C )
 
 option( DBG "Build bebug version?" ON )
 
-include_directories( "/mnt/d/CODING/MIPT_PROG_3rdTERM/HOME_WORK/T00_BIZZBUZZ/headers" )
+include_directories( "${CMAKE_SOURCE_DIR}/headers" )
 
 add_executable( bizz-buzz
     source/bizz-buzz.c

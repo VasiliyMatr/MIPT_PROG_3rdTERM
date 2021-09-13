@@ -8,7 +8,7 @@ int main (int argc, char ** argv)
     if (errStatus.errCode_ != EC_OK_)
     {
         fprintf (stderr, "%s" "\n", getErrMsg (errStatus.errCode_));
-        if (errStatus.errno_ != EINVAL)
+        if (errStatus.errno_ != EINVAL && errStatus.errno_ != 0)
             fprintf (stderr, "%s" "\n", strerror (errStatus.errno_));
         fputc ('\n', stderr);
 
