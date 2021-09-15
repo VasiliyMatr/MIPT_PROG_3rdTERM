@@ -21,6 +21,14 @@ const char* getErrMsg( enum errCode_t errCode )
     }
 }
 
+void printErrStatus( struct errStatus_t errStatus )
+{
+    fprintf (stderr, "%s" "\n", getErrMsg (errStatus.errCode_));
+    if (errStatus.errno_ != EINVAL && errStatus.errno_ != 0)
+        fprintf (stderr, "%s" "\n", strerror (errStatus.errno_));
+    fputc ('\n', stderr);
+}
+
 int isBadPtr( void* ptr )
 {
     return ptr == NULL;

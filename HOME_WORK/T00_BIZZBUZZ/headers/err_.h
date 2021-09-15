@@ -1,4 +1,6 @@
 
+#define _LARGEFILE64_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -52,6 +54,8 @@ struct errStatus_t
 };
 
 const char* getErrMsg( enum errCode_t errCode );
+
+void printErrStatus( struct errStatus_t errStatus );
 
 int isBadPtr( void* ptr );
 

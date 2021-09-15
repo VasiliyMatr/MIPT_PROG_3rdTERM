@@ -17,7 +17,7 @@ set( COMMON_COMPILER_OPTIONS
     -Wall -Wpedantic -Wunused -Wunreachable-code
 )
 set( DEBUG_COMPILER_OPTIONS
-    -g -O1
+    -g -O0
 )
 set( RELEASE_COMPILER_OPTIONS
     -O3
