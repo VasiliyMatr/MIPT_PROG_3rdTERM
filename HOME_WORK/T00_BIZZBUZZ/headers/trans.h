@@ -9,7 +9,7 @@
 #ifndef TRANS_H_INCL
 #define TRANS_H_INCL
 
-#include <err.h>
+#include <err_.h>
 
 struct errStatus_t transByDescr( int inDescr, int outDescr );
 struct errStatus_t transByArgs( int argc, char ** argv );

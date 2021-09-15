@@ -1,5 +1,5 @@
 
-#include <err.h>
+#include <err_.h>
 
 const char* getErrMsg( enum errCode_t errCode )
 {

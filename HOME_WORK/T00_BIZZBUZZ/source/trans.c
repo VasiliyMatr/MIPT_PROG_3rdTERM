@@ -91,7 +91,6 @@ struct errStatus_t transByDescr( int inDescr, int outDescr )
 
     #define BUFF_SIZE 4096
     char buff[BUFF_SIZE] = "";
-    int canFindNum = 1;
 
     while (1)
     {
@@ -235,7 +234,7 @@ static struct errStatus_t transNumber( int inDescr, int outDescr )
                         return copy (inDescr, outDescr, currOffset - (readenBytesNum - buffOffset) - startOffset);
                     }
 
-                    if (readenBytesNum == -1)
+                    if (writtenBytesNum == -1)
                     {
                         errStatus.errCode_ = EC_OUT_ERR_;
                         errStatus.errno_ = errno;
@@ -257,6 +256,9 @@ static struct errStatus_t transNumber( int inDescr, int outDescr )
     }
 
     #undef BUFF_SIZE
+
+    errStatus.errCode_ = EC_UNDEF_ERR_;
+    return errStatus;
 }
 
 #define MIN( FT, SD ) FT < SD ? FT : SD
