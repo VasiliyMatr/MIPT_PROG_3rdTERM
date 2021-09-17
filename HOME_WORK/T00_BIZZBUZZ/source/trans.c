@@ -77,7 +77,7 @@ static struct errStatus_t openInAndOut( char * inName, char * outName,
     *inDescrPtr = open (inName, O_RDONLY | O_LARGEFILE);
     COND_RET (*inDescrPtr == -1, EC_IN_ERR_);
 
-    *outDescrPtr = open (outName, O_CREAT | O_WRONLY | O_LARGEFILE, 0600);
+    *outDescrPtr = open (outName, O_CREAT | O_WRONLY | O_LARGEFILE | O_TRUNC, 0600);
     COND_RET (*outDescrPtr == -1, EC_OUT_ERR_);
 
     errStatus.errCode_ = EC_OK_;
