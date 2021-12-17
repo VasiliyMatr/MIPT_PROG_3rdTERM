@@ -12,7 +12,7 @@ target_sources( ${EXEC_NAME} PRIVATE
 )
 
 target_compile_options( ${EXEC_NAME} PRIVATE
--O1 -g -Wall -Wextra -Wpedantic -Wunused -Wunreachable-code
+-O1 -g -Wall -Werror -Wextra -Wpedantic -Wunused -Wunreachable-code
 )
 
 target_compile_features( ${EXEC_NAME} PRIVATE c_std_11 )
